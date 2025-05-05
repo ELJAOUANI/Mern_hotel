@@ -2,11 +2,7 @@ const mongoose = require('mongoose');
 
 // Définir le schéma pour la chambre
 const roomSchema = new mongoose.Schema({
-  hotel: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'Hotel',  // Référence à l'entité Hotel (l'hôtel auquel appartient la chambre)
-    required: true,
-  },
+
   type: {
     type: String,
     required: true,  // Le type de chambre (ex: "Standard", "Suite", etc.)
