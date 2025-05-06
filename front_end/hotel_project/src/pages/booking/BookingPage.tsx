@@ -1,8 +1,4 @@
 import  { useEffect, useState } from 'react';
-
-// import { Validate } from '@/core';
-
-
 import BookingTable from './components/BookingTable';
 import { useAppDispatch, useAppSelector } from '@/store/hooks/hooks';
 import { deleteBooking, getAllBookings } from '@/store/Thunk/booking/bookingThunk';
@@ -16,7 +12,7 @@ const BookingPage: React.FC = () => {
   const bookings = useAppSelector(state => state.booking.bookings); 
   console.log(bookings);
   
-  const selectedBooking = useAppSelector(state => state.booking.selectedItem); // optional
+  const selectedBooking = useAppSelector(state => state.booking.selectedItem); 
   const [isLoading, setIsLoading] = useState(false);
 
 
@@ -30,12 +26,12 @@ const BookingPage: React.FC = () => {
     fetchBookings();
 
     return () => {
-      setIsLoading(false); // optional cleanup
+      setIsLoading(false); 
     };
   }, [dispatch]);
 
   const handleDeleteBooking = async (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault(); // Prevent default action
+    event.preventDefault(); 
     if (!selectedBooking?._id) return;
     setIsLoading(true);
     try {
@@ -43,7 +39,7 @@ const BookingPage: React.FC = () => {
         await dispatch(deleteBooking(selectedBooking?._id)); 
         console.log(selectedBooking?._id);
         
-        // @ts-ignore
+       
        $('#delete-booking').modal('hide');
     } catch (error) {
         console.error('Failed to Delete booking:', error);

@@ -26,7 +26,7 @@ export default function RegisterPage() {
 
       if (registerTh.fulfilled.match(result)) {
         console.log("Registration successful:", result.payload);
-        navigate("/"); // Redirect to homepage or booking page
+        navigate("/"); 
       } else {
         console.error("Registration failed:", result.payload);
         setError(result.payload || "Registration failed");
@@ -57,13 +57,11 @@ export default function RegisterPage() {
         backgroundRepeat: "no-repeat",
       }}
     >
-      {/* Overlay for better contrast */}
       <div
         className="position-absolute top-0 start-0 w-100 h-100"
         style={{ backgroundColor: "rgba(0, 0, 0, 0.5)", zIndex: 0 }}
       ></div>
 
-      {/* Card container */}
       <div
         className="card shadow-lg rounded-4 p-4"
         style={{ maxWidth: "480px", width: "100%", position: "relative", zIndex: 1 }}

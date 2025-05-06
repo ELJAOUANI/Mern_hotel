@@ -1,10 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { AddReservationModal } from '../../pages/booking/components/AddReservationModal';
-// import BookingForm from './components/BookinForm';
-
-// import { createBooking } from '../../store/Thunk/booking/bookingThunk';
-// import { BookingData } from '../../types/booking';
- import { useAppSelector } from '../../store/hooks/hooks';
+import { useAppSelector } from '../../store/hooks/hooks';
 import { useNavigate } from 'react-router-dom';
 
 const HomePage: React.FC = () => {
@@ -16,16 +12,15 @@ const HomePage: React.FC = () => {
     e.preventDefault();
     
     if (!isAuthenticated) {
-      navigate('/login'); // Redirect to login
-      return; // Do not open the modal if not authenticated
+      navigate('/login');
+      return;
     }
     
-    setShowModal(true); // Open the modal if authenticated
+    setShowModal(true);
   };
 
   return (
     <div>
-    {/* Hero Section */}
     <div
       className="bg-dark text-white p-5 text-center"
       style={{
@@ -56,7 +51,7 @@ const HomePage: React.FC = () => {
       </div>
     </div>
 
-    {/* About Section */}
+
     <div className="container py-5">
       <div className="row align-items-center">
         <div className="col-md-6">

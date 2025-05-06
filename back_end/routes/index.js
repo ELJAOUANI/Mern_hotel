@@ -18,6 +18,6 @@ router.post('/rooms', roomController.createRoom);
 router.get('/rooms/:id', roomController.getRoomsByHotelId);
 router.get('/rooms', roomController.getAllRooms);
 router.put('/rooms/:id', roomController.updateRoom);
-router.delete('/rooms/:id', roomController.deleteRoom);
+router.delete('/rooms/:id', authenticate, checkRole('admin'), roomController.deleteRoom);
 
 module.exports = router;

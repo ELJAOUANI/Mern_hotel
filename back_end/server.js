@@ -4,6 +4,7 @@ const dotenv = require('dotenv');
 const authRoutes = require('./routes/authRoutes');
 const allRoutes = require('./routes/index'); // 👈 Import all other routes
 const app = express();
+const authenticate = require('./middleware/authMiddleware');
 const cors = require('cors');
 dotenv.config(); // Charger les variables d'environnement
 
@@ -27,7 +28,8 @@ mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true, useUnifiedTop
 
 // Routes
 app.use('/api/auth', authRoutes);
-app.use('/api', allRoutes); // 👈 Use the main router for bookings, hotels, rooms
+app.use('/api', authenticate, allRoutes);
+
 
 
 

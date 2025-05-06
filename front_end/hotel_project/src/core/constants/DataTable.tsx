@@ -122,9 +122,7 @@ const DataTable: React.FC<TableProps> = ({ items = [], headers, buttonType, page
                     {header.type === "number" && <small>{helpers.formatNumber(item[header.value])}</small>}
                     {header.type === "date" && <small>{formatDate(item[header.value])}</small>}
                     {header.type === "email" && <small>{item[header.value]}</small>} 
-                    {header.type === "rooms" && (
-  <small>{renderRooms(item[header.value])}</small>
-)}
+                    {header.type === "rooms" && (<small>{renderRooms(item[header.value])}</small>)}
 
                   </td>
                 ))}
